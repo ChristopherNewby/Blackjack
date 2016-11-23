@@ -1,0 +1,30 @@
+﻿@model BlackJack.Models.Deck
+
+@{
+    ViewBag.Title = "Blackjack";
+}
+
+<h2>Blackjack</h2>
+
+@*<h1>Current Conditions in <span data-bind="text:name"></span></h1>
+<h1>Current Temp <span data-bind="text:main.temp"></span>&deg; F</h1>
+<h1>Current Wind Speed <span data-bind="text:wind.speed"></span> MPH</h1>*@
+
+@*<input type="button" value="get weather" onclick="getMyCurrentWeather();" />*@
+
+<script>
+         
+    var newDeck = Object();
+
+    $(document).ready(function getCurrentDeck(){
+            $.get("@Url.Action("GetDeck","Home")",
+                function(response){
+                    console.log(response);
+                    newDeck = ko.mapping.fromJS(response);
+                    ko.applyBindings(newDeck)
+                });
+    });
+
+
+</script>
+

@@ -1,0 +1,24 @@
+﻿@model BlackJack.Models.CardView
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h3>The Current Deck Id is @Model.deck_id</h3>
+
+<p>You have @Model.remaining cards in your deck</p>
+
+<p>
+    <a class="btn btn-default" href="@Url.Action("DrawACard", "Game", new { deck_id = Model.deck_id })">Deal a Card!</a>
+</p>
+
+<p>
+    <a class="btn btn-default" href="@Url.Action("NewGame", "Game", new { deck_id = Model.deck_id })">Add to player.</a>
+</p>
+
+@foreach (var card in Model.cards)
+{
+    <img src="@card.image" />
+}

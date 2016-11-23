@@ -1,0 +1,13 @@
+﻿@model BlackJack.Models.GameViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+<h3>Card Dealer</h3>
+<br />
+<p>You have @Model.newDeck.remaining cards remaining in your deck.</p>
+<br />
+<br />
+<p>
+    <a class="btn btn-default" href="@Url.Action("PlayGame", new { deck_id = Model.newDeck.deck_id })" ;>Deal a card</a>
+</p>
